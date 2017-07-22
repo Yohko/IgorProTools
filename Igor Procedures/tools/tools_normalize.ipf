@@ -4,7 +4,7 @@
 
 Menu "Macros"
 	submenu "Tools"
-		"Normalize	v1", tools_normalize()
+		"Normalize spectra", tools_normalize()
 	end
 end
 
@@ -33,12 +33,12 @@ function tools_normalize()
 	
 		string tracesInGraph = TraceNameList("", ";",1+4) // only visible normal traces
 		variable m = ItemsInList(tracesInGraph)
+		print m
 		for( specnum = 0; specnum < m; specnum += 1 )
-			if (specnum == m)
-				break
-			endif
+			//if (specnum == m)
+			//	break
+			//endif
 
-					
 			sn=GetWavesDataFolder(WaveRefIndexed(graphname,specnum,1),2)
 			wave snw=$sn
 			if (strsearch(sn[strlen(sn)-1,strlen(sn)],"'",0) ==0)
@@ -147,8 +147,8 @@ function tools_normalize()
 			Print "factor: ",factor
 			Print "1/factor: ",(1/factor)
 			srnw /= factor
-			//notestr = notestr + "; /=" + num2str(factor) 
-			//note $srn,notestr 
+			notestr = notestr + "; /=" + num2str(factor) 
+			note $srn,notestr 
 			if (cmpstr(show,"Yes")==0) 
 				if (specnum==0) 
 					Display srnw
@@ -156,7 +156,6 @@ function tools_normalize()
 					AppendToGraph srnw
 				endif  
 			endif 
-			specnum=specnum+1 
 		endfor
 	endif
 end

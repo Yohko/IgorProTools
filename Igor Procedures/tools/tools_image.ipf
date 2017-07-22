@@ -29,7 +29,6 @@ function tools_imagemanipulate(mode)
 			abort mode+"not supported!"
 			break
 	endswitch
-	
 end
 
 
@@ -73,7 +72,7 @@ Function tools_updateColorRange(imgW,[minVal,maxVal,Range,changeScale])
 	
 	string graphName= WinName(0,1,1)
 	
-	string newctab = addtowavename(nameofwave(imgw), "ct")
+	string newctab = tools_addtowavename(nameofwave(imgw), "ct")
 	newctab = GetWavesDataFolder(imgW,1)+"'"+UniqueName(newctab, 1,0)+"'"
 	duplicate /O ctab, $newctab
 	wave ctab = $newctab	

@@ -9,7 +9,10 @@ Menu "Macros"
 end
 
 
-function tools_calcedge()
+function tools_calcedge([energy])
+	variable energy
+	energy = paramIsDefault(energy) ? 0 : energy
+
 	string graphname,sn,srn,notestr
 	graphname=WinName(0,1)
 	If (cmpstr(graphname,"")==0)
@@ -44,11 +47,12 @@ function tools_calcedge()
 			variable a2e = W_sigma[0]
 			variable b2e = W_sigma[1]
 
-			
+		
 			print "edge position:",(a1-a2)/(b2-b1)
+			print "edge position (",energy,"):",energy+(a1-a2)/(b2-b1)
 			print "error:",(abs((a1e)/(b2-b1))+abs((a2e)/(b2-b1))+abs((a1-a2)*b2e/(b2-b1)^2)+abs((a1-a2)*b1e/(b2-b1)^2))
-			
-			
+
+
 			variable stretch = 0
 			DrawAction /W=$graphname getgroup=calcedge, delete	
 			SetDrawEnv /W=$graphname gstart,gname=calcedge
