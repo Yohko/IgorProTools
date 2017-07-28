@@ -21,3 +21,11 @@ function /S tools_mycleanupstr(name)
 	endif
 	return name
 end
+
+
+Function tools_round_dec(val,dec) 
+	variable val, dec 
+	dec=round(dec) 
+	return round(10^dec*val)/10^dec 
+End 
+

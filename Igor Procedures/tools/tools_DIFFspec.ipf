@@ -94,7 +94,7 @@ static function differencespec(specname, diffname, targetname)
 	variable  lyscaling_dg=1 
 	variable  lxshift_dg=0.01
 	variable  ly_incdg=0.01
-	variable  lx_incdg=round_dec( abs(deltax(specname)),10)/10
+	variable  lx_incdg=tools_round_dec( abs(deltax(specname)),10)/10
 	variable lyoffset_dg = 0
 	prompt lyscaling_dg, "Y scaling:"
 	prompt lxshift_dg, "xshift_dg:"
@@ -145,19 +145,19 @@ static function wavedifference(sw,dw,tw1,tw2,xs,yf,yoffset)
 	xa_2=leftx(tw1) 
 	xe_1=rightx(sw)
 	xe_2=rightx(tw1)
-	dx=round_dec(deltax(sw),10) 
-	xs=round_dec(xs,10) 
+	dx=tools_round_dec(deltax(sw),10) 
+	xs=tools_round_dec(xs,10) 
 	
 	if(   ((xa_1>xe_1)*(xa_2>xe_2))   |   ((xa_1<xe_1)*(xa_2<xe_2)) )
 	
 		if (dx<0) 			
-			xmax=xa_1 + dx* ceil(   - round_dec( (xa_1-min(xa_1,xa_2+xs))/dx,10 )   )
+			xmax=xa_1 + dx* ceil(   - tools_round_dec( (xa_1-min(xa_1,xa_2+xs))/dx,10 )   )
 			xmin=max(xe_1,xe_2+xs) 
 			npt=ceil( dxmin_dg/10 + (xmin-xmax)/dx ) 
 			xanf=xmax 
 		else
 			xmax=min(xe_1,xe_2+xs)
-			xmin=xa_1 + dx* ceil(   round_dec( (max(xa_1,xa_2+xs)-xa_1)/dx,10 )    ) 
+			xmin=xa_1 + dx* ceil(   tools_round_dec( (max(xa_1,xa_2+xs)-xa_1)/dx,10 )    ) 
 			npt=ceil( dxmin_dg/10 + (xmax-xmin)/dx )  
 			xanf=xmin 
 		endif 
