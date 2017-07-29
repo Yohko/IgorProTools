@@ -29,3 +29,13 @@ Function tools_round_dec(val,dec)
 	return round(10^dec*val)/10^dec 
 End 
 
+
+function /S tools_getwavepathfromgraph(specwave)
+	Wave specwave
+	string path = ""
+	if(waveexists(specwave))
+		path = GetWavesDataFolder(specwave,2)
+	endif
+	return path
+end
+

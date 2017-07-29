@@ -190,9 +190,9 @@ function DiffVar(SV_Struct) : SetVariableControl
 	NVAR xshift_dg = $(DIFFspec_directory+"xshift_dg")
 	SVAR targetname = $(DIFFspec_directory+"targetname")
 	NVAR yoffset_dg = $(DIFFspec_directory+"yoffset_dg")
-	string specname = getwavepathfromgraph(WaveRefIndexed("",0,1))
-	string dname = getwavepathfromgraph(WaveRefIndexed("",1,1)) 
-	string tw2 = getwavepathfromgraph(WaveRefIndexed("",2,1))
+	string specname = tools_getwavepathfromgraph(WaveRefIndexed("",0,1))
+	string dname = tools_getwavepathfromgraph(WaveRefIndexed("",1,1)) 
+	string tw2 = tools_getwavepathfromgraph(WaveRefIndexed("",2,1))
 	wavedifference($specname,$dname,$targetname,$tw2,xshift_dg,yscaling_dg,yoffset_dg)
 end
 
@@ -209,9 +209,9 @@ Function DiffButtons(ctrlName) : ButtonControl
 	NVAR yoffset_dg = $(DIFFspec_directory+"yoffset_dg")
 
 	string wn = WinName(0,1)
-	string specname = getwavepathfromgraph(WaveRefIndexed("",0,1))
-	string dname = getwavepathfromgraph(WaveRefIndexed("",1,1))
-	string tw2 = getwavepathfromgraph(WaveRefIndexed("",2,1))
+	string specname = tools_getwavepathfromgraph(WaveRefIndexed("",0,1))
+	string dname = tools_getwavepathfromgraph(WaveRefIndexed("",1,1))
+	string tw2 = tools_getwavepathfromgraph(WaveRefIndexed("",2,1))
 
 	string hstr
 
